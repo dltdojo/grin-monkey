@@ -1,0 +1,6 @@
+version: '3'
+services:
+  green-node:
+    build: .
+    image: $IMG_NAME:$VERSION
+    command: ./in.sh start

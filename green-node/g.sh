@@ -19,9 +19,14 @@ info() {
     echo $VERSION
 }
 
+build() {
+    docker-compose build
+}
+
 case "$1" in 
+    build)   build ;;
     info)   info ;;
-    *) echo "usage: $0 info|help" >&2
+    *) echo "usage: $0 info|build|help" >&2
        exit 1
        ;;
 esac

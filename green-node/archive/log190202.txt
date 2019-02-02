@@ -1,0 +1,32 @@
+$ docker-compose build
+$ docker-compose up -d
+
+$ docker-compose ps
+         Name                Command      State               Ports
+--------------------------------------------------------------------------------
+green-node_green-node_1   ./in.sh start   Up      13413/tcp, 13414/tcp,
+                                                  13415/tcp, 13416/tcp
+
+$ docker-compose exec green-node ./in.sh init
+
+Please enter a password for your new wallet
+Password: Confirm Password: 20190202 07:29:00.875 WARN grin_wallet::types - Generating wallet seed file at: /root/.grin/user/wallet_data/wallet.seed
+Your recovery phrase is:
+
+valve feature major vivid oxygen outdoor opera lunar jungle strong town income jump window ice velvet spoon quick diesel daughter explain seek later collect
+
+Please back-up these words in a non-digital format.
+Command 'init' completed successfully
+
+$ docker-compose exec green-node ./in.sh info
+Password:
+____ Wallet Summary Info - Account 'default' as of height 0 ____
+
+ Total                            | 0.000000000
+ Awaiting Confirmation (< 10)     | 0.000000000
+ Locked by previous transaction   | 0.000000000
+ -------------------------------- | -------------
+ Currently Spendable              | 0.000000000
+
+Command 'info' completed successfully
+

@@ -21,7 +21,9 @@ RUN ls -al
 VOLUME ["/root/.grin"]
 
 EXPOSE 13413 13414 13415 13416
+# wallet init ?
+# grin --floonet wallet init <<< $'changeme\nchangeme\n'
 
-ENTRYPOINT ["grin", "--usernet"]
-
-CMD ["server", "run"]
+COPY in.sh .
+# ENTRYPOINT ["grin", "--usernet"]
+# CMD ["server", "run"]
