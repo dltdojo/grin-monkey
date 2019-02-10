@@ -1,0 +1,60 @@
+```
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose logs
+Attaching to green-node_green-node_1
+green-node_1  | Please enter a password for your new wallet
+green-node_1  | Password: Confirm Password: 20190210 08:59:07.800 WARN grin_wallet::types - Generating wallet seed file at: /root/.grin/user/wallet_data/wallet.seed
+green-node_1  | Your recovery phrase is:
+green-node_1  |
+green-node_1  | suit tooth transfer pen pass master cheap calm forward post draft evoke hole add express virtual proud strategy afraid panther few stool object coil
+green-node_1  |
+green-node_1  | Please back-up these words in a non-digital format.
+green-node_1  | Command 'init' completed successfully
+green-node_1  | Password:
+green-node_1  | ____ Wallet Summary Info - Account 'default' as of height 0 ____
+green-node_1  |
+green-node_1  |  Total                            | 0.000000000
+green-node_1  |  Awaiting Confirmation (< 10)     | 0.000000000
+green-node_1  |  Locked by previous transaction   | 0.000000000
+green-node_1  |  -------------------------------- | -------------
+green-node_1  |  Currently Spendable              | 0.000000000
+green-node_1  |
+green-node_1  |
+green-node_1  | WARNING: Wallet failed to verify data against a live chain. The above is from local cache and only valid up to the given height! (is your `grin server` offline or broken?)
+green-node_1  | Command 'info' completed successfully
+green-node_1  | 20190210 08:59:11.063 WARN grin::cmd::server - Starting GRIN w/o UI...
+green-node_1  | Password: 20190210 08:59:11.077 WARN grin_wallet::controller - Starting HTTP Foreign listener API server at 0.0.0.0:23415.
+green-node_1  | 20190210 08:59:11.077 WARN grin_wallet::controller - HTTP Foreign listener started.
+green-node_1  | 20190210 08:59:11.100 WARN grin_servers::grin::server - No seed configured, will stay solo until connected to
+green-node_1  | 20190210 08:59:11.101 WARN grin_servers::grin::server - Grin server started.
+green-node_1  | 20190210 08:59:11.101 WARN grin_servers::grin::seed - No seeds were retrieved.
+
+$ docker-compose exec green-node ./in.sh info
+Password:
+____ Wallet Summary Info - Account 'default' as of height 17 ____
+
+ Total                            | 1020.000000000
+ Immature Coinbase (< 3)          | 180.000000000
+ Awaiting Confirmation (< 10)     | 360.000000000
+ Locked by previous transaction   | 0.000000000
+ -------------------------------- | -------------
+ Currently Spendable              | 480.000000000
+
+Command 'info' completed successfully
+
+
+$ docker-compose exec green-node ./in.sh info
+Password:
+____ Wallet Summary Info - Account 'default' as of height 195 ____
+
+ Total                            | 11700.000000000
+ Immature Coinbase (< 3)          | 180.000000000
+ Awaiting Confirmation (< 10)     | 360.000000000
+ Locked by previous transaction   | 0.000000000
+ -------------------------------- | -------------
+ Currently Spendable              | 11160.000000000
+
+Command 'info' completed successfully
+
+```

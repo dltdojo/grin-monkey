@@ -15,7 +15,9 @@ RUN curl -L https://github.com/mimblewimble/grin/releases/download/v1.0.0/grin-v
 WORKDIR /root/.grin
 
 RUN grin --usernet server config && \
-    sed -i -e 's/run_tui = true/run_tui = false/' grin-server.toml
+    sed -i -e 's/run_tui = true/run_tui = false/' grin-server.toml && \
+    sed -i -e 's/run_test_miner = false/run_test_miner = true/' grin-server.toml && \
+    sed -i -e 's|#test_miner_wallet_url = "http://127.0.0.1:3415"|test_miner_wallet_url = "http://127.0.0.1:23415"|' grin-server.toml
 
 RUN ls -al 
 VOLUME ["/root/.grin"]
